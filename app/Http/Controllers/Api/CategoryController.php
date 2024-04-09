@@ -31,6 +31,50 @@ public function index(){
         return response()->json($response);
     }
 }
+
+
+
+    /**
+* @OA\Post(
+     *     path="/api/categories",
+     *     summary="create a new category",
+     *     @OA\Parameter(
+     *         name="title",
+     *         in="query",
+     *         description="User's name",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="categorie_name",
+     *         in="query",
+     *         description="User's email",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="slug",
+     *         in="query",
+     *         description="User's password",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *    
+     *    @OA\Response(
+     *     response="422", 
+     *    description="Validation errors",
+     *    @OA\JsonContent()
+     *    ),
+     * 
+     *    @OA\Response(
+     *    response="201", 
+     *    description="Category created successfully",
+     *    @OA\JsonContent()
+     *    ),
+     *    
+     * )
+     */
+
    
     public function store(Request $request)
     {
@@ -53,6 +97,38 @@ public function index(){
       //  return redirect()->back();
       return response()->json(['success' => true, 'message' => 'Category created successfully','data' => $category], 200);
     }
+
+
+        /**
+* @OA\Post(
+     *     path="/api/categories/44",
+     *     summary="update category",
+     *     @OA\Parameter(
+     *         name="title",
+     *         in="query",
+     *         description="User's name",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="categorie_name",
+     *         in="query",
+     *         description="User's email",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="slug",
+     *         in="query",
+     *         description="User's password",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *    
+     *    @OA\Response(response="422", description="Validation errors"),
+     *    @OA\Response(response="201", description="User updated successfully"),
+     * )
+     */
 
     public function update(Request $request,Category $categories,$id)
     {

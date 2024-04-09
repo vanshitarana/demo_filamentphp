@@ -10,6 +10,42 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
+
+        /**
+* @OA\Post(
+     *     path="/api/login",
+     *     summary="Login User",
+     *     @OA\Parameter(
+     *         name="email",
+     *         in="query",
+     *         description="User's email",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="password",
+     *         in="query",
+     *         description="User's password",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),   
+     *    
+     *    @OA\Response(
+     *     response="422", 
+     *    description="Validation errors",
+     *    @OA\JsonContent()
+     *    ),
+     * 
+     *    @OA\Response(
+     *    response="201", 
+     *    description="Login successfully",
+     *    @OA\JsonContent()
+     *    ),
+     *    
+     * )
+     */
+
     public function login(Request $request)
     {
         $request->validate([
